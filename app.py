@@ -174,6 +174,7 @@ def send_web_mail():
     event = request.form.get('event')
     message = sendgrid.Mail()
     message.add_to(to_attr)
+    message.add_bcc(from_attr)
     message.set_subject(subj_attr)
     message.set_html(body_attr)
     message.set_text(body_attr)
