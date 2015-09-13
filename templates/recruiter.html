@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <style>
+        @import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+        @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700");
+        .btn{height:40px; border:none; background:#0C6; width:100%; outline:none; font-family: 'Source Sans Pro', sans-serif; font-size:20px; font-weight:bold; color:#eee; border-bottom:solid 3px #093; border-radius:3px; cursor:pointer}
+        #footer {
+          background-color: #f5f5f5;
+          text-align: center;
+        }
+    </style>
+    <style type="text/css">
+      table.imagetable {
+        font-family: verdana,arial,sans-serif;
+        font-size:11px;
+        color:#333333;
+        border-width: 1px;
+        border-color: #999999;
+        border-collapse: collapse;
+        width: 95%;
+      }
+      table.imagetable th {
+        background:#b5cfd2 url('cell-blue.jpg');
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #999999;
+      }
+      table.imagetable td {
+        background:#dcddc0 url('cell-grey.jpg');
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #999999;
+      }
+      .headSec{
+        margin-left:25px;
+        font-family: 'Source Sans Pro', sans-serif;
+
+      }
+      </style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+    <!-- Custom CSS -->
+    <link href="/static/css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+      type="text/css">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/favico.ico"/>
+     <!-- jQuery -->
+    
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.js"></script>
+    <script>
+      $(function() {
+        $( "#tabs" ).tabs();
+        });
+
+      function handlechange(){
+        alert("in");
+        alert(document.getElementById("resumeName").value);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <!-- <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span>
+          </button> -->
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Get Hi.rd </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- <div class="collapse navbar-collapse"
+          id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="login.action">Hi.rd</a></li>
+          </ul>
+        </div> -->
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="fill" style="background-image: url('/static/images/interview1.jpg');"></div>
+          <div class="carousel-caption">
+            <h1>Get <b>Hi.rd</b></h1>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image: url('/static/images/interview2.jpg');"></div>
+          <div class="carousel-caption">
+            <h1>Get <b>Hi.rd</b></h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+      </a> <a class="right carousel-control" href="#myCarousel"
+        data-slide="next"> <span class="icon-next"></span>
+      </a>
+    </header>
+    <br><br>
+    <div class="headSec"><h3>Welcome Recuiter</h3>  </div>
+    <br><br>
+    <div class="tabContainer" style="width:98%;margin-left: 10px;margin-right:10px;">
+
+    <div id="tabs">
+      <ul>
+      <li><a href="#tabs-1">Download Resume</a></li>
+      <li><a href="#tabs-2">View Transactions</a></li>
+      </ul>
+      <div id="tabs-1" style="height:500px;">
+      
+      <div class="form">
+        <br><br>
+          {% if urlData %}
+
+           <table class="imagetable">
+            <tr>
+              <th>Resume Name</th> 
+              <th>Download Link</th>
+            </tr>
+            {%for d in urlData%}
+                <tr>
+                  <td>{{ d['file']}}</td>
+                  <td><a href="http://localhost:5000/uploads/{{ d['file']|forceescape }}" target="_blank">http://localhost:5000/uploads/{{ d['file']|forceescape }}</a></td>
+                 
+                </tr>
+              {% endfor %}
+            </table>
+          {% endif %}
+        </form>
+      </div>
+    </div>
+
+      <div id="tabs-2" style="height:500px;">
+        <br><br>
+        {% if transactionData %}
+
+           <table class="imagetable">
+            <tr>
+              <th>Applicant Name</th>
+              <th>Applicant Id</th>
+              <th>University</th>
+              <th>Event</th>
+              <th>Date</th> 
+              <th>Status</th> 
+            </tr>
+              {%for d in transactionData%}
+                <tr>
+                  <td>{{ d['applicantName']}}</td>
+                  <td>{{ d['applicantId']|forceescape }}</td>
+                  <td>{{ d['university']|forceescape }}</td>
+                  <td>{{ d['event']|forceescape }}</td>
+                  <td>{{ d['timeStamp']|forceescape }}</td>
+                  <td>{{ d['status']|forceescape }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+          {% endif %}
+      </div>
+    </div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Team Rutgers @ HopHacks</p>
+      </div>
+    </div>
+
+    <!-- <div class="container">
+      <div class="header">
+        <h3 class="text-muted">How To Upload a File</h3>
+      </div>
+      <hr/>
+      <div>
+      
+      <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file"><br /><br />
+        <input type="submit" value="Upload">
+      </form>
+      </div>
+    </div> -->
+
+
+    <!-- /.container -->
+
+       
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+      $('.carousel').carousel({
+        interval : 5000
+      //changes the speed
+      })
+    </script>
+  </body>
+</html>

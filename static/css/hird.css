@@ -35,4 +35,12 @@ ul li{height:40px; margin:15px 0; list-style:none}
 background-color: #f5f5f5;
 text-align: center;
 }
+
+.tabContainer {
+    width: 90%;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background:#096
+}
 @media(max-width:480px){ .form{width:100%}}
