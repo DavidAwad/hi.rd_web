@@ -165,7 +165,7 @@
             {%for d in urlData%}
                 <tr>
                   <td>{{ d['file']}}</td>
-                  <td><a href="http://localhost:5000/uploads/{{ d['file']|forceescape }}" target="_blank">http://localhost:5000/uploads/{{ d['file']|forceescape }}</a></td>
+                  <td><a href="/uploads/{{ d['file']|forceescape }}" target="_blank">/uploads/{{ d['file']|forceescape }}</a></td>
                  
                 </tr>
               {% endfor %}
