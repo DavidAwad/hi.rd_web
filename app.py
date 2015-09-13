@@ -1,16 +1,8 @@
 import os
-# We'll render HTML templates and access data sent by POST
-# using the request object from flask. Redirect and url_for
-# will be used to redirect the user once the upload is done
-# and send_from_directory will help us to send/show on the
-# browser the file that the user just uploaded
 from flask import Flask, render_template, flash, request, redirect, url_for, send_from_directory, jsonify
 from werkzeug import secure_filename
-# from pymongo import MongoClient
-# import pymongo
 import logging
 import dataset
-
 
 
 logging.basicConfig(level=logging.INFO)
@@ -29,21 +21,6 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads/'
 # These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
-
-# safety function to get a connection to the db above
-# def get_db():
-#     try:
-#         logger.info("Connecting to db ..." + str(db_conn))
-#     except Exception as e:
-#         db_conn = None
-#     if not db_conn:
-#         try:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-#             conn = MongoClient("mongodb://hirdadmin:hirdadmin@ds047591.mongolab.com:47591/hird")
-#             db = conn.hird
-#             db_conn = db
-#         except pymongo.errors.ConnectionFailure, e:
-#             logger.critical("Could not connect to MongoDB: %s" % e)
-#     return db_conn
 
 
 # For a given file, return whether it's an allowed type or not
@@ -117,14 +94,16 @@ def signInUser():
 
 
 # Route that will process the user sign up on request
-@app.route('/validate_credentials', methods=['POST'])
+@app.route('/validate_credentials')
 def validate_credentials():
     # Get the name of the uploaded file
-    userId = request.form.get('email')
-    passw = request.form.get('pass')
+    userId = request.args.get('email')
+    passw = request.args.get('pass')
+    print "received {0} and {1}".format(userId, passw)
     results = table.find()
     for row in results:
-        if row['userId']==userId and row['passw']==passw:
+	print row
+        if (row['userId'] == userId.encode("utf-8")) and (row['passw'] == passw.encode("utf-8")):
             return jsonify(valid=True)
     return jsonify(valid=False)
     
@@ -141,7 +120,7 @@ def uploaded_file(filename):
 if __name__ == '__main__':
     app.run(
         host="127.0.0.1",
-        port=int("3000"),
+        port=5000,
         debug=True
     )
 
