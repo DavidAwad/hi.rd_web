@@ -166,7 +166,7 @@ def validate_credentials():
 
 @app.route('/send_web_mail', methods=['POST'])
 def send_web_mail():
-    sg = sendgrid.SendGridClient('whokilled two pac','asdkjasd')
+    sg = sendgrid.SendGridClient('Smashking02','Smash4ever')
     from_attr = session['userId']
     to_attr =  request.form.get('mailto')
     subj_attr = request.form.get('subject')
@@ -188,7 +188,7 @@ def send_web_mail():
             attachment_url = d['file']
             print from_attr+","+to_attr+","+subj_attr+","+body_attr+","+attachment_url
             attachment = "/uploads/"+attachment_url
-            message.add_attachment(attachment,'.'+attachment)
+            message.add_attachment(attachment_url,attachment)
             results = loginTable.find()
             for data in results:
                 if from_attr==data['userId']:
@@ -222,7 +222,7 @@ def send_web_mail():
 
 @app.route('/send_mail')
 def send_mail():
-    sg = sendgrid.SendGridClient('whokilled two pac','asdkjasd')
+    sg = sendgrid.SendGridClient('Smashking02','Smash4ever')
     from_attr = request.args.get('from')
     to_attr =  request.args.get('to')
     subj_attr = request.args.get('subj')
@@ -232,11 +232,24 @@ def send_mail():
     message.add_bcc(from_attr)
     message.add_to(to_attr)
     message.set_subject(subj_attr)
-    message.set_text(body_attr)
+    message.set_html(body_attr)
     message.set_from(from_attr)
-
+    message.add_attachment(str(retrieve_file(from_attr)), open(str('./uploads/'+retrieve_file(from_attr)), 'rb')  )
+    
     status, msg = sg.send(message)
+
+    print ('status is '+ str(status))
+    print msg
     return jsonify(email_sent=True, file_attached='yes') 
+
+#@app.route('/retrieve_file')
+def retrieve_file(email):
+    records = resumeTable.find()
+    for d in records:
+        if d['userId']==email:
+            resumeData = d
+            return d['file'].encode('utf-8')
+    return False
 
 # This route is expecting a parameter containing the name
 # of a file. Then it will locate that file on the upload
