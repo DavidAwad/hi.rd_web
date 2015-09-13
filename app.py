@@ -185,10 +185,7 @@ def send_web_mail():
     org=""
     for d in records:
         if d['userId']==session['userId']:
-            attachment_url = d['file']
-            print from_attr+","+to_attr+","+subj_attr+","+body_attr+","+attachment_url
-            attachment = "/uploads/"+attachment_url
-            message.add_attachment(attachment_url,attachment)
+            message.add_attachment(str(retrieve_file(from_attr)), open(str('./uploads/'+retrieve_file(from_attr)), 'rb')  )
             results = loginTable.find()
             for data in results:
                 if from_attr==data['userId']:
