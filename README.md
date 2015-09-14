@@ -15,7 +15,7 @@ It uses NFC for bulk collection of resumes by letting potential applicants tap t
 
 Created by :
 <br>Abhi Verma - Web App
-<br>David Awad/Anantha - Android App
+<br>David Awad/Ananth Rao- Android App
 
 Android App Repository : https://github.com/ananthamapod/hi.rd
 
