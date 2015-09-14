@@ -16,5 +16,17 @@ It uses NFC for bulk collection of resumes by letting potential applicants tap t
 
 ![alt tag](https://github.com/digidude87/hi.rd_web/blob/master/screenshots/hird1.jpg)
 
+![alt tag](https://github.com/digidude87/hi.rd_web/blob/master/screenshots/hird2.jpg)
+
+![alt tag](https://github.com/digidude87/hi.rd_web/blob/master/screenshots/hird3.jpg)
+
+![alt tag](https://github.com/digidude87/hi.rd_web/blob/master/screenshots/hird4.jpg)
+
+![alt tag](https://github.com/digidude87/hi.rd_web/blob/master/screenshots/hird5.jpg)
+
+![alt tag](https://github.com/digidude87/hi.rd_web/blob/master/screenshots/hird6.jpg)
+
+![alt tag](https://github.com/digidude87/hi.rd_web/blob/master/screenshots/hird7.jpg)
+
 
 
