@@ -14,4 +14,7 @@ It let's you simply tap your phone against the table of any recruiter you're int
 It uses NFC for bulk collection of resumes by letting potential applicants tap their phones against the your devices, it gives you contact emails and gives you their resumes so you can contact them after going through your applicant pool.
 
 
+![alt tag](https://github.com/digidude87/hi.rd_web/blob/master/screenshots/hird1.jpg)
+
+
 
