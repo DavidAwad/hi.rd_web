@@ -166,7 +166,7 @@ def validate_credentials():
 
 @app.route('/send_web_mail', methods=['POST'])
 def send_web_mail():
-    sg = sendgrid.SendGridClient('Smashking02','Smash4ever')
+    sg = sendgrid.SendGridClient('*********','*********')
     from_attr = session['userId']
     to_attr =  request.form.get('mailto')
     subj_attr = request.form.get('subject')
@@ -220,7 +220,7 @@ def send_web_mail():
 
 @app.route('/send_mail')
 def send_mail():
-    sg = sendgrid.SendGridClient('Smashking02','Smash4ever')
+    sg = sendgrid.SendGridClient('***********','***********')
     from_attr = request.args.get('from')
     to_attr =  request.args.get('to')
     subj_attr = request.args.get('subj')
