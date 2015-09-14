@@ -2,8 +2,8 @@
 Web app for Hi.rd - Hack @ Hophacks
 
 <h5>Inspiration</h5>
-What it does
-streamlines the process for recruiters and applicants at hackathons and job fairs to give you one tool to keep open with a quick way to share your email and a small template message too with the resume attached!
+What it does<br>
+It streamlines the process for recruiters and applicants at hackathons and job fairs to give you one tool to keep open with a quick way to share your email and a small template message too with the resume attached!
 
 
 <h5>For students</h5>
